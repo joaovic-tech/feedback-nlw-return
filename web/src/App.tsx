@@ -1,5 +1,11 @@
-import { Widget } from "./components/Widget"
+import { Inboxes } from "./components/Inboxes";
+import { Widget } from "./components/Widget";
 
 export function App(){
-  return <Widget />
+  return (
+    <>
+      <Inboxes />
+      <Widget />
+    </>
+  )
 }
