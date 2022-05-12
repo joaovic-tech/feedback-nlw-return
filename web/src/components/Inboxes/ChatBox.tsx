@@ -56,8 +56,8 @@ export function ChatBox() {
     <div className="relative z-10 flex flex-col gap-4 min-w-[304px] w-full min-h-[112px] mt-2 mb-20 scrollbar scrollbar-thumb-zinc-700 scrollbar-track-transparent scrollbar-thin">
       {Object.entries(User).map(([key, value]) => {
         return (
-          <div className="flex gap-2 items-center m-6">
-            <div key={key} className="w-20 h-20 text-center flex flex-col gap-2">
+          <div key={key} className="flex gap-2 items-center m-6">
+            <div className="w-20 h-20 text-center flex flex-col gap-2">
               <img src={value.image.source} alt={value.image.alt} className="w-full bg-cover rounded-full" />
             </div>
             <div className="flex flex-col gap-4">

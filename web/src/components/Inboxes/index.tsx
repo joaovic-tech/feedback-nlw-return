@@ -3,9 +3,6 @@ import { ChatsCircle  } from "phosphor-react";
 import { ChatBox } from "./ChatBox";
 import { TextBox } from "./TextBox";
 
-const push_notifications = '/src/assets/svg/push_notifications.svg';
-const sharing_articles = '/src/assets/svg/sharing_articles.svg';
-
 export function Inboxes() {
   return (
     <section className="flex flex-col h-screen relative">

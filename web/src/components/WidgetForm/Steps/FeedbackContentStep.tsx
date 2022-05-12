@@ -1,8 +1,9 @@
-import { ArrowLeft, Camera } from "phosphor-react";
+import { ArrowLeft } from "phosphor-react";
 import { FormEvent, useState } from "react";
 import { FeedbackType, feedbackTypes } from "..";
 import { api } from "../../../lib/api";
 import { CloseButton } from "../../CloseButton";
+import { FormattingDate } from "../../FormattingDate";
 import { Loading } from "../../Loading";
 import { ScreenshotButton } from "../ScreenshotButton";
 
@@ -25,17 +26,12 @@ export function FeedbackContentStep({
 
   async function handleSubmitFeedback(event: FormEvent) {
     event.preventDefault();
-
     setIsSendingFeedback(true);
-
-    /* console.log({
-      screenshot,
-      comment,
-    }) */
 
     await api.post('/feedbacks', {
       type: feedbackType,
       comment,
+      date: FormattingDate.date,
       screenshot,
     });
 
@@ -64,7 +60,7 @@ export function FeedbackContentStep({
 
       <form onSubmit={handleSubmitFeedback} className="my-4 w-full">
         <textarea
-          className="min-w-[304px] w-full min-h-[112px] text-sm placeholder-zinc-400 text-zinc-100 border-zinc-600 bg-transparent rounded-md focus:border-brand-500 focus:ring-brand-500 focus:ring-1 focus:outline-none resize-none scrollbar scrollbar-thumb-zinc-700 scrollbar-track-transparent scrollbar-thin"
+          className="min-w-[304px] w-full min-h-[112px] text-sm placeholder-zinc-400 text-zinc-100 border-zinc-600 bg-transparent rounded-md focus:border-brand-500 focus:ring-brand-500 focus:ring-1 focus:outline-none resize-none scrollbar-thumb-zinc-700 scrollbar-track-transparent scrollbar-thin"
           placeholder="Conte com detalhes o que está acontecendo..."
           onChange={event => setComment(event.target.value)}
         />
