@@ -3,26 +3,17 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
 model Feedback {
-  id String @id @default(uuid())
-
+  id         String  @id @default(uuid())
   type       String
   comment    String
   date       String
   screenshot String?
+  name       String
 
   @@map("feedbacks")
-}
-
-model Message {
-  id String @id @default(uuid())
-
-  message String
-  date    String
-
-  @@map("message")
 }

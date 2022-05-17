@@ -3,6 +3,7 @@ export interface FeedbackCreateData {
   comment: string;
   date: string;
   screenshot?: string;
+  name: string;
 }
 
 export interface FeedbacksRepository {

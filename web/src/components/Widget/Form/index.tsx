@@ -1,11 +1,11 @@
 import { useState } from "react";
 
-import bugImageUrl from '../../assets/svg/bug.svg';
-import ideaImageUrl from '../../assets/svg/idea.svg';
-import thoughtImageUrl from '../../assets/svg/thought.svg';
-import { FeedbackTypeStep } from "./Steps/FeedbackTypeStep";
+import bugImageUrl from '../../../assets/svg/bug.svg';
+import ideaImageUrl from '../../../assets/svg/idea.svg';
+import thoughtImageUrl from '../../../assets/svg/thought.svg';
 import { FeedbackContentStep } from "./Steps/FeedbackContentStep";
 import { FeedbackSuccessStep } from "./Steps/FeedbackSuccessStep";
+import { FeedbackTypeStep } from "./Steps/FeedbackTypeStep";
 
 export const feedbackTypes = {
   BUG: {
@@ -33,7 +33,7 @@ export const feedbackTypes = {
 
 export type FeedbackType = keyof typeof feedbackTypes
 
-export function WidgetForm() {
+export function Form() {
   const [feedbackType, setFeedbackType] = useState<FeedbackType | null>(null)
   const [feedbackSent, setFeedbackSent] = useState(false)
 

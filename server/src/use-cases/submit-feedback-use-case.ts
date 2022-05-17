@@ -6,6 +6,7 @@ interface SubmitFeedbackUseCaseRequest {
   comment: string;
   date: string;
   screenshot?: string;
+  name: string;
 }
 
 export class SubmitFeedbackUseCase {
@@ -15,7 +16,7 @@ export class SubmitFeedbackUseCase {
   ) {}
 
   async execute(request : SubmitFeedbackUseCaseRequest) {
-    const { type, comment, date, screenshot } = request;
+    const { type, comment, date, screenshot, name } = request;
 
     if(!type){
       throw new Error('Type is required.')
@@ -33,17 +34,23 @@ export class SubmitFeedbackUseCase {
       throw new Error('Invalid screenshot format.')
     }
 
+    if(!name){
+      throw new Error('Name is required.')
+    }
+
     await this.feedbacksRepository.create({
       type,
       comment,
       date,
       screenshot,
+      name,
     })
 
     await this.mailAdapter.sendMail({
       subject: 'Novo feedback',
       body: [
         `<div style="font-family: sans-serif; font-sie: 16px; color: #222;">`,
+        `<p>Usuário: ${name}</p>`,
         `<p>Tipo do feedback: ${type}</p>`,
         `<p>Comentário: ${comment}</p>`,
         screenshot ? `<img src="${screenshot}">` : null,

@@ -6,7 +6,7 @@ import { SubmitFeedbackUseCase } from './use-cases/submit-feedback-use-case';
 export const routes = express.Router()
 
 routes.post('/feedbacks', async (req, res) => {
-  const { type, comment, date, screenshot } = req.body;
+  const { type, comment, date, screenshot, name } = req.body;
 
   const prismaFeedbacksRepository = new PrismaFeedbacksRepository()
   const nodemailerMailAdapter = new NodemailerMailAdapter()
@@ -21,6 +21,7 @@ routes.post('/feedbacks', async (req, res) => {
     comment,
     date,
     screenshot,
+    name,
   });
 
 	return res.status(201).send()

@@ -8,5 +8,5 @@ var currentDate = new Date(),
     fullYear = currentDate.getFullYear();
 
 export const FormattingDate = {
-  date: `Hours: ${hours}:${minutes} Date: ${day}/${month}/${fullYear}`
+  date: `${hours}:${minutes} ${day}/${month}/${fullYear}`
 }

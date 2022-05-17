@@ -1,15 +1,21 @@
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient } from '@prisma/client';
+import { routes } from './routes';
 
-export const prisma = new PrismaClient()
+export const prisma = new PrismaClient({
+  log: [
+    { emit: 'stdout', level: 'query' },
+    { emit: 'stdout', level: 'info' },
+    { emit: 'stdout', level: 'warn' },
+    { emit: 'stdout', level: 'error' }
+  ]
+});
 
-// A `main` function so that you can use async/await
-export async function main() {
-  const allMessages = await prisma.message.findMany({
-    select: {
-      message: true,
-    }
-  })
-  console.dir(allMessages)
+async function main() {
+  const result = await prisma.feedback.findMany()
+  routes.get('/feedbacks-return', (req, res) => {
+    res.send(result);
+    res.redirect('http://localhost:3000');
+  });
 }
 
 main()

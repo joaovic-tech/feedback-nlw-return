@@ -16,6 +16,7 @@ describe('Submit feedback', () => {
       comment: 'example comment',
       date: 'hora 11:00 data 11/05/2022',
       screenshot: 'data:image/png;base64,6a5s4das4654asdx6',
+      name: 'UserTest',
     })).resolves.not.toThrow();
 
     expect(createFeedbackSpy).toHaveBeenCalled();
@@ -28,6 +29,7 @@ describe('Submit feedback', () => {
       comment: 'example comment',
       date: 'hora 11:00 data 11/05/2022',
       screenshot: 'data:image/png;base64,6a5s4das4654asdx6',
+      name: 'UserTest',
     })).rejects.toThrow();
   })
 
@@ -37,6 +39,7 @@ describe('Submit feedback', () => {
       comment: '',
       date: 'hora 11:00 data 11/05/2022',
       screenshot: 'data:image/png;base64,6a5s4das4654asdx6',
+      name: 'UserTest',
     })).rejects.toThrow();
   })
 
@@ -45,7 +48,8 @@ describe('Submit feedback', () => {
       type: 'BUG',
       comment: 'example comment',
       date: '',
-      screenshot: '123',
+      screenshot: 'data:image/png;base64,6a5s4das4654asdx6',
+      name: 'UserTest',
     })).rejects.toThrow();
   })
 
@@ -55,6 +59,17 @@ describe('Submit feedback', () => {
       comment: 'example comment',
       date: 'hora 11:00 data 11/05/2022',
       screenshot: '123',
+      name: 'UserTest',
+    })).rejects.toThrow();
+  })
+
+  it('should not be able to submit feedback with an invalid screenshot', async () => {
+    await expect(submitFeedback.execute ({
+      type: 'BUG',
+      comment: 'example comment',
+      date: 'hora 11:00 data 11/05/2022',
+      screenshot: '123',
+      name: '',
     })).rejects.toThrow();
   })
 });
