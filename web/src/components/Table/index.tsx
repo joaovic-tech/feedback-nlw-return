@@ -12,44 +12,45 @@ export function Table() {
   }, []);
   return (
     <>
-      <table className="min-w-full text-center">
-        <thead className="border-b bg-brand-500">
+      <table className="w-11/12 text-center m-auto my-8 rounded-lg shadow-md shadow-color-300 bg-color-300">
+        <thead className="border-b-4 border-solid border-zinc-300">
           <tr>
-            <th scope="col" className="text-2xl font-medium text-color-300 w-32 h-6 p-2 border-2 border-dashed border-color-300">
-              Nome
+            <th scope="col" className="text-2xl font-medium text-zinc-300 w-52 h-12 p-2">
+              Image
             </th>
-            <th scope="col" className="text-2xl font-medium text-color-300 w-32 h-6 p-2 border-2 border-dashed border-color-300">
-              Tipo
+            <th scope="col" className="text-2xl font-medium text-zinc-300 w-52 h-12 p-2">
+              Type
             </th>
-            <th scope="col" className="text-2xl font-medium text-color-300 w-32 h-6 p-2 border-2 border-dashed border-color-300">
-              Comentário
+            <th scope="col" className="text-2xl font-medium text-zinc-300 w-52 h-12 p-2">
+              comment
             </th>
-            <th scope="col" className="text-2xl font-medium text-color-300 w-32 h-6 p-2 border-2 border-dashed border-color-300">
-              Data
+            <th scope="col" className="text-2xl font-medium text-zinc-300 w-52 h-12 p-2">
+              User
             </th>
-            <th scope="col" className="text-2xl font-medium text-color-300 w-32 h-6 p-2 border-2 border-dashed border-color-300">
-              Imagem
+            <th scope="col" className="text-2xl font-medium text-zinc-300 w-52 h-12 p-2">
+              Date
             </th>
           </tr>
         </thead>
         <tbody className="h-4">
-          {Object.entries(feedbacks).map(([key, value]) => {
+          {Object.entries(feedbacks).map(([key, value]) => { 
             return (
-              <tr key={value.id} className="bg-color-200 border-b">
-                <td className="text-xl text-brand-300 font-light w-32 h-6 p-2 whitespace-nowrap border-2 border-dashed border-brand-500">
-                  {value.name}
+              <tr key={value.id} className={`${value.type} border-b border-zinc-700`}>
+                <td className="text-xl font-light w-52 h-12 p-2">
+                  <img src={value.screenshot} className="w-12 h-12 border-purple-500 border-solid border-2 rounded-md m-auto" />
                 </td>
-                <td className="text-xl text-brand-300 font-light w-32 h-6 p-2 whitespace-nowrap border-2 border-dashed border-brand-500">
-                  {value.type}
+                <td className="text-xl font-light w-52 h-12 p-2">
+                  <img src={`/src/assets/svg/${value.type}.svg`} className="w-12 h-12 m-auto" />
+                  <span>{value.type}</span>
                 </td>
-                <td className="text-xl text-brand-300 font-light w-32 h-6 p-2 whitespace-nowrap border-2 border-dashed border-brand-500">
-                  {value.comment}
+                <td className="text-xl font-light w-52 h-12 p-2">
+                  <span>{value.comment}</span>
                 </td>
-                <td className="text-xl text-brand-300 font-light w-32 h-6 p-2 whitespace-nowrap border-2 border-dashed border-brand-500">
-                  {value.date}
+                <td className="text-xl font-light w-52 h-12 p-2">
+                  <span>{value.name}</span>
                 </td>
-                <td className="text-xl text-brand-300 font-light w-32 h-6 p-2 whitespace-nowrap border-2 border-dashed border-brand-500">
-                  <img src={value.screenshot} className="w-full" />
+                <td className="text-xl font-light w-52 h-12 p-2">
+                  <span>{value.date}</span>
                 </td>
               </tr>
             )

@@ -2,5 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 body{
-  @apply bg-gradient-to-t bg-color-100 bg-color-200 text-zinc-100
+  @apply bg-zinc-900  text-zinc-100;
+}
+
+.BUG{
+  @apply text-purple-500
+}
+
+.IDEA{
+  @apply text-yellow-300
+}
+
+.OTHER{
+  @apply text-blue-400
 }
