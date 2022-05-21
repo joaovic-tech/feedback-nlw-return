@@ -1,11 +1,11 @@
 import { ArrowLeft } from "phosphor-react";
 import { FormEvent, useState } from "react";
 import { FeedbackType, feedbackTypes } from "..";
-import { api } from "../../../../services/api";
 import { CloseButton } from "../../CloseButton";
 import { FormattingDate } from "../../FormattingDate";
 import { Loading } from "../../../Loading";
 import { ScreenshotButton } from "../ScreenshotButton";
+import api from "../../../../services/apiSendFeedback";
 
 interface FeedbackContentStepProps {
   feedbackType: FeedbackType;
