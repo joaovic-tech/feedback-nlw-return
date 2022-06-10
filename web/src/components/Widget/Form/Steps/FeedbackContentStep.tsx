@@ -2,10 +2,10 @@ import { ArrowLeft } from "phosphor-react";
 import { FormEvent, useState } from "react";
 import { FeedbackType, feedbackTypes } from "..";
 import { CloseButton } from "../../CloseButton";
-import { FormattingDate } from "../../FormattingDate";
+import { date } from "../../FormattingDate";
 import { Loading } from "../../../Loading";
 import { ScreenshotButton } from "../ScreenshotButton";
-import api from "../../../../services/apiSendFeedback";
+import { api } from "../../../../services/apiFeedback";
 
 interface FeedbackContentStepProps {
   feedbackType: FeedbackType;
@@ -22,20 +22,29 @@ export function FeedbackContentStep({
   const [comment, setComment] = useState('');
   const [name, setName] = useState('');
   const [isSendingFeedback, setIsSendingFeedback] = useState(false);
-
   const feedbackTypeInfo = feedbackTypes[feedbackType];
 
   async function handleSubmitFeedback(event: FormEvent) {
     event.preventDefault();
     setIsSendingFeedback(true);
 
-    await api.post('/feedbacks', {
+    const sendFeedback = await api.post(import.meta.env.VITE_SEND_FEEDBACK, {
       type: feedbackType,
       comment,
-      date: FormattingDate.date,
+      date,
       screenshot,
       name,
     });
+
+    if(!sendFeedback){
+      alert('Sorry, there was a problem with your browser and we sent the feedback without the image.');
+      api.post(import.meta.env.VITE_SEND_FEEDBACK, {
+        type: feedbackType,
+        comment,
+        date,
+        name,
+      })
+    }
 
     setIsSendingFeedback(false);
     onFeedbackSent();
@@ -63,14 +72,18 @@ export function FeedbackContentStep({
       <form onSubmit={handleSubmitFeedback} className="my-4 w-full">
         <input
           type="text"
-          className="form-control block w-full px-3 py-1.5 text-base font-normal bg-clip-padding rounded transition ease-in-out my-4 placeholder-zinc-400 text-brand-500 border border-solid border-zinc-600 bg-color-200 focus:bg-color-200 focus:border-brand-500 focus:ring-brand-500 focus:ring-1 focus:outline-none scrollbar-thumb-zinc-700 scrollbar-track-transparent scrollbar-thin"
+          className="inputFeedback form-control block w-full px-3 py-1.5 text-base font-normal bg-clip-padding rounded transition ease-in-out my-4 placeholder-zinc-400 text-zinc-300 border border-solid border-zinc-600 bg-color-200 focus:bg-color-200 focus:border-brand-500 focus:ring-brand-500 focus:ring-1 focus:outline-none scrollbar-thumb-zinc-700 scrollbar-track-transparent scrollbar-thin"
           placeholder="Nome"
           onChange={event => setName(event.target.value)}
+          required
+          maxLength={100}
         />
         <textarea
-          className="min-w-[304px] w-full min-h-[112px] text-sm rounded-md placeholder-zinc-400 text-brand-500 border border-solid border-zinc-600 bg-color-200 focus:bg-color-200 focus:border-brand-500 focus:ring-brand-500 focus:ring-1 focus:outline-none resize-none scrollbar-thumb-zinc-700 scrollbar-track-transparent scrollbar-thin"
+          className="inputFeedback min-w-[304px] w-full min-h-[112px] text-sm rounded-md placeholder-zinc-400 text-zinc-300 border border-solid border-zinc-600 bg-color-200 focus:bg-color-200 focus:border-brand-500 focus:ring-brand-500 focus:ring-1 focus:outline-none resize-none scrollbar-thumb-zinc-700 scrollbar-track-transparent scrollbar-thin"
           placeholder="Conte com detalhes o que está acontecendo..."
           onChange={event => setComment(event.target.value)}
+          required
+          maxLength={500}
         />
 
         <footer className="flex gap-2 mt-2">
@@ -81,10 +94,10 @@ export function FeedbackContentStep({
 
           <button
             type="submit"
-            disabled={comment.length === 0 || isSendingFeedback}
+            disabled={comment.length === 0 || name.length === 0 || isSendingFeedback}
             className="p-2 bg-brand-500 rounded-md border-transparent flex-1 flex justify-center items-center text-sm hover:bg-brand-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:ring-brand-500 transition-colors shadow-indigo-500/50 disabled:opacity-50 disabled:hover:bg-brand-500 disabled:hover:cursor-not-allowed"
           >
-            {isSendingFeedback ? <Loading /> : 'Enviar feedback'}
+            {isSendingFeedback ? <Loading /> : 'Send feedback'}
           </button>
         </footer>
       </form>

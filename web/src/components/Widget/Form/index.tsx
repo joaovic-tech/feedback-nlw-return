@@ -37,7 +37,8 @@ export function Form() {
   const [feedbackType, setFeedbackType] = useState<FeedbackType | null>(null)
   const [feedbackSent, setFeedbackSent] = useState(false)
 
-  function handleRestartFeedback() {;
+  function handleRestartFeedback() {
+    ;
     setFeedbackSent(false);
     setFeedbackType(null);
   }
@@ -61,8 +62,8 @@ export function Form() {
       )}
 
       <footer className="text-xs text-neutral-400">
-        Feito com ♥ pelo <a className="underline underline-offset-2 hover:text-brand-300" href="https://www.instagram.com/joaovic.tech/">@joaovic.tech</a>
-      </footer>      
+        Made with ♥ by <a className="underline underline-offset-2 hover:text-brand-300" href="https://www.instagram.com/joaovic.tech/">@joaovic.tech</a>
+      </footer>
     </div>
   )
 }

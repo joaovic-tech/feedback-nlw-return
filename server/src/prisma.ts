@@ -12,8 +12,7 @@ export const prisma = new PrismaClient({
 
 async function main() {
   const result = await prisma.feedback.findMany()
-  const routeFeedbackTable = process.env.ROUTER_FEEDBACKS_TABLE!
-  routes.get(routeFeedbackTable, (req, res) => {
+  routes.get('/table', (req, res) => {
     res.send(result);
   });
 }

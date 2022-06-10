@@ -1,11 +1,11 @@
-import { NavBar } from "./components/NavBar";
+import { Menu } from "./components/Menu";
 import { Table } from "./components/Table";
 import { Widget } from "./components/Widget";
 
-export function App(){
+export function App() {
   return (
     <>
-      <NavBar />
+      <Menu />
       <Table />
       <Widget />
     </>
