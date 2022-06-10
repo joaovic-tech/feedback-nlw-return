@@ -1,7 +1,7 @@
 import { useState } from "react";
-import bugImageUrl from '/src/assets/svg/BUG.svg';
-import ideaImageUrl from '/src/assets/svg/IDEA.svg';
-import thoughtImageUrl from '/src/assets/svg/OTHER.svg';
+import bugImageUrl from '../../../assets/svg/bug.svg';
+import ideaImageUrl from '../../../assets/svg/idea.svg';
+import thoughtImageUrl from '../../../assets/svg/thought.svg';
 import { FeedbackContentStep } from "./Steps/FeedbackContentStep";
 import { FeedbackSuccessStep } from "./Steps/FeedbackSuccessStep";
 import { FeedbackTypeStep } from "./Steps/FeedbackTypeStep";
