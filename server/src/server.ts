@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import { routes } from './routes';
-const PORT = process.env.PORT || process.env.PORT_URL;
+const PORT = process.env.PORT || 3333;
 
 export const app = express();
 
