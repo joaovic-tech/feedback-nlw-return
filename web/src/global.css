@@ -30,7 +30,7 @@ body {
 }
 
 .BUG button.type {
-  @apply hover: text-purple-500 focus:text-purple-500 active:text-purple-500 transition-colors
+  @apply hover:text-purple-500 focus:text-purple-500 active:text-purple-500 transition-colors
 }
 
 .IDEA span.type {
@@ -38,7 +38,7 @@ body {
 }
 
 .IDEA button.type {
-  @apply hover: text-yellow-300 focus:text-yellow-300 active:text-yellow-300 transition-colors
+  @apply hover:text-yellow-300 focus:text-yellow-300 active:text-yellow-300 transition-colors
 }
 
 .OTHER span.type {
@@ -46,20 +46,20 @@ body {
 }
 
 .OTHER button.type {
-  @apply hover: text-blue-400 focus:text-blue-400 active:text-blue-400 transition-colors
+  @apply hover:text-blue-400 focus:text-blue-400 active:text-blue-400 transition-colors
 }
 
 /* screenshot */
 .BUG .screenshot {
-  @apply border-purple-500 hover: shadow-purple-500 focus:shadow-purple-500 active:shadow-purple-500
+  @apply border-purple-500 hover:shadow-purple-500 focus:shadow-purple-500 active:shadow-purple-500
 }
 
 .IDEA .screenshot {
-  @apply border-yellow-300 hover: shadow-yellow-300 focus:shadow-yellow-300 active:shadow-yellow-300
+  @apply border-yellow-300 hover:shadow-yellow-300 focus:shadow-yellow-300 active:shadow-yellow-300
 }
 
 .OTHER .screenshot {
-  @apply border-blue-400 hover: shadow-blue-400 focus:shadow-blue-400 active:shadow-blue-400
+  @apply border-blue-400 hover:shadow-blue-400 focus:shadow-blue-400 active:shadow-blue-400
 }
 
 .screenshotZoom {
