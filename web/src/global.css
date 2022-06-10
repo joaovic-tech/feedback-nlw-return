@@ -1,55 +1,68 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-body{
+
+body {
   @apply bg-zinc-400 text-zinc-100 scrollbar-thumb-zinc-700 scrollbar-track-transparent scrollbar-thin
 }
-.inputFeedback:invalid{
+
+.inputFeedback:invalid {
   animation: invalid 300ms;
 }
 
 @keyframes invalid {
-  25% { transform: translateX(5px); }
-  50% { transform: translateX(-4px); }
-  100% { transform: translateX(4px); }
+  25% {
+    transform: translateX(5px);
+  }
+
+  50% {
+    transform: translateX(-4px);
+  }
+
+  100% {
+    transform: translateX(4px);
+  }
 }
 
 
-.BUG span.type{
+.BUG span.type {
   @apply bg-purple-500 shadow-purple-500
 }
-.BUG button.type{
-  @apply hover:text-purple-500 focus:text-purple-500 active:text-purple-500 transition-colors
+
+.BUG button.type {
+  @apply hover: text-purple-500 focus:text-purple-500 active:text-purple-500 transition-colors
 }
 
-.IDEA span.type{
+.IDEA span.type {
   @apply bg-yellow-300 shadow-yellow-300
 }
-.IDEA button.type{
-  @apply hover:text-yellow-300 focus:text-yellow-300 active:text-yellow-300 transition-colors
+
+.IDEA button.type {
+  @apply hover: text-yellow-300 focus:text-yellow-300 active:text-yellow-300 transition-colors
 }
 
-.OTHER span.type{
-  @apply bg-blue-400 shadow-blue-400 
+.OTHER span.type {
+  @apply bg-blue-400 shadow-blue-400
 }
-.OTHER button.type{
-  @apply hover:text-blue-400 focus:text-blue-400 active:text-blue-400 transition-colors
+
+.OTHER button.type {
+  @apply hover: text-blue-400 focus:text-blue-400 active:text-blue-400 transition-colors
 }
 
 /* screenshot */
 .BUG .screenshot {
-  @apply border-purple-500 hover:shadow-purple-500 focus:shadow-purple-500 active:shadow-purple-500
+  @apply border-purple-500 hover: shadow-purple-500 focus:shadow-purple-500 active:shadow-purple-500
 }
 
 .IDEA .screenshot {
-  @apply border-yellow-300 hover:shadow-yellow-300 focus:shadow-yellow-300 active:shadow-yellow-300
+  @apply border-yellow-300 hover: shadow-yellow-300 focus:shadow-yellow-300 active:shadow-yellow-300
 }
 
 .OTHER .screenshot {
-  @apply border-blue-400 hover:shadow-blue-400 focus:shadow-blue-400 active:shadow-blue-400
+  @apply border-blue-400 hover: shadow-blue-400 focus:shadow-blue-400 active:shadow-blue-400
 }
 
-.screenshotZoom{
+.screenshotZoom {
   position: absolute;
   top: 50%;
   left: 50%;
