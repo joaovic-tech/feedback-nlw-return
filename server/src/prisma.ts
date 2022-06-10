@@ -3,10 +3,7 @@ import { routes } from './routes';
 
 export const prisma = new PrismaClient({
   log: [
-    { emit: 'stdout', level: 'query' },
-    { emit: 'stdout', level: 'info' },
-    { emit: 'stdout', level: 'warn' },
-    { emit: 'stdout', level: 'error' }
+    { emit: 'stdout', level: 'query' }
   ]
 });
 
@@ -16,7 +13,6 @@ async function main() {
     res.send(result);
   });
 }
-
 
 main()
   .catch((e) => {
