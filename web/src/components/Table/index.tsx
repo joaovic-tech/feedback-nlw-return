@@ -5,7 +5,7 @@ import { api } from "../../services/apiFeedback";
 export function Table() {
   const [feedbacks, setFeedbacks] = useState<any[]>([]);
   useEffect(() => {
-    api.get(import.meta.env.VITE_GET_FEEDBACK).then(({ data }) => {
+    api.get('/table').then(({ data }) => {
       setFeedbacks(data);
     })
   }, [feedbacks]);
@@ -15,7 +15,7 @@ export function Table() {
     if (confirmDelete) {
       document.getElementById(idDelete)!.style.display = 'none';
       alert('Feedback deleted!');
-      await api.post(import.meta.env.VITE_DELETE_FEEDBACK, {
+      await api.post('/delete', {
         id: idDelete
       });
     }

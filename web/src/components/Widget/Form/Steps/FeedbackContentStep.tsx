@@ -28,7 +28,7 @@ export function FeedbackContentStep({
     event.preventDefault();
     setIsSendingFeedback(true);
 
-    const sendFeedback = await api.post(import.meta.env.VITE_SEND_FEEDBACK, {
+    const sendFeedback = await api.post('/feedbacks', {
       type: feedbackType,
       comment,
       date,
@@ -38,7 +38,7 @@ export function FeedbackContentStep({
 
     if(!sendFeedback){
       alert('Sorry, there was a problem with your browser and we sent the feedback without the image.');
-      api.post(import.meta.env.VITE_SEND_FEEDBACK, {
+      api.post('/feedbacks', {
         type: feedbackType,
         comment,
         date,
