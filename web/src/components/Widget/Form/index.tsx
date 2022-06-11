@@ -33,8 +33,8 @@ export const feedbackTypes = {
 export type FeedbackType = keyof typeof feedbackTypes
 
 export function Form() {
-  const [feedbackType, setFeedbackType] = useState<FeedbackType | null>(null)
-  const [feedbackSent, setFeedbackSent] = useState(false)
+  const [feedbackType, setFeedbackType] = useState<FeedbackType | null>(null);
+  const [feedbackSent, setFeedbackSent] = useState(false);
 
   function handleRestartFeedback() {
     ;
@@ -43,7 +43,7 @@ export function Form() {
   }
 
   return (
-    <div className="bg-zinc-900 p-4 relative z-10 rounded-2xl mb-4 flex flex-col items-center shadow-lg w-[calc(100vw-2rem)] md:w-auto">
+    <div className="bg-color-200 p-4 relative z-10 rounded-2xl mb-4 flex flex-col items-center shadow-lg shadow-color-200 w-[calc(100vw-2rem)] md:w-auto">
       {feedbackSent ? (
         <FeedbackSuccessStep onFeedbackRestartRequested={handleRestartFeedback} />
       ) : (
@@ -61,7 +61,7 @@ export function Form() {
       )}
 
       <footer className="text-xs text-neutral-400">
-        Made with ♥ by <a className="underline underline-offset-2 hover:text-brand-300" href="https://www.instagram.com/joaovic.tech/">@joaovic.tech</a>
+        Made with ♥ by <a className="underline underline-offset-2 hover:text-brand-500" href="https://www.instagram.com/joaovic.tech/">@joaovic.tech</a>
       </footer>
     </div>
   )
