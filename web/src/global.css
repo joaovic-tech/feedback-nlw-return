@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply bg-zinc-400 text-zinc-100 scrollbar-thumb-zinc-700 scrollbar-track-transparent scrollbar-thin
+  @apply bg-zinc-400 text-zinc-100 scrollbar-thumb-zinc-700 scrollbar-track-transparent scrollbar-thin h-screen
 }
 
 .inputFeedback:invalid {
@@ -62,7 +62,7 @@ body {
   @apply border-blue-400 hover:shadow-blue-400 focus:shadow-blue-400 active:shadow-blue-400
 }
 
-.screenshotZoom {
+table .screenshotZoom {
   position: absolute;
   top: 50%;
   left: 50%;

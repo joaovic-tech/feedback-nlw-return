@@ -5,7 +5,7 @@ import { CloseButton } from "../../CloseButton";
 import { date } from "../../FormattingDate";
 import { Loading } from "../../../Loading";
 import { ScreenshotButton } from "../ScreenshotButton";
-import { api } from "../../../../services/apiFeedback";
+import { Api } from "../../../../providers";
 
 interface FeedbackContentStepProps {
   feedbackType: FeedbackType;
@@ -28,23 +28,13 @@ export function FeedbackContentStep({
     event.preventDefault();
     setIsSendingFeedback(true);
 
-    const sendFeedback = await api.post('/feedbacks', {
+    await Api.post('/feedbacks', {
       type: feedbackType,
       comment,
       date,
       screenshot,
       name,
     });
-
-    if(!sendFeedback){
-      alert('Sorry, there was a problem with your browser and we sent the feedback without the image.');
-      api.post('/feedbacks', {
-        type: feedbackType,
-        comment,
-        date,
-        name,
-      })
-    }
 
     setIsSendingFeedback(false);
     onFeedbackSent();
