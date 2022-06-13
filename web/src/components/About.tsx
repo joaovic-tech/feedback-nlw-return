@@ -20,10 +20,10 @@ export function About() {
             <h3 className="py-2 text-red-600 flex gap-2 text-2xl 2xl:text-4xl"><WarningOctagon className="text-4xl 2xl:text-6xl" /> Google Chrome browser is recommended</h3>
             <ul className="p-6 flex flex-col space-y-6 2xl:space-y-8 2xl:mx-4 list-disc">
               <li className="text-xl leading-relaxed text-zinc-300 2xl:text-4xl">
-                The feedback table was inspired by the <a className="underline hover:text-purple-600 focus:text-purple-600 outline-none" href="https://rocketseat.com.br/">Rocketseat</a> event called NLW RETURN, to learn more about how it was done, visit the <a className="underline hover:text-purple-600 focus:text-purple-600 outline-none" href="https://github.com/joaovic-tech/feedback-nlw-return">repository</a>.
+                The feedback table was inspired by the <a className="underline hover:text-purple-600 focus:text-purple-600 outline-none" href="https://rocketseat.com.br/" target="blank">Rocketseat</a> event called NLW RETURN, to learn more about how it was done, visit the <a className="underline hover:text-purple-600 focus:text-purple-600 outline-none" href="https://github.com/joaovic-tech/feedback-nlw-return" target="blank">repository</a>.
               </li>
               <li className="text-xl leading-relaxed text-zinc-300 2xl:text-4xl">
-                The html2canvas API is being used to create an HTML representation of the web application. However, in some cases, they do not work in some browsers. <a className="underline hover:text-purple-600 focus:text-purple-600 outline-none" href="https://github.com/niklasvh/html2canvas">Read more.</a>
+                The html2canvas API is being used to create an HTML representation of the web application. However, in some cases, they do not work in some browsers. <a className="underline hover:text-purple-600 focus:text-purple-600 outline-none" href="https://github.com/niklasvh/html2canvas" target="blank">Read more.</a>
               </li>
             </ul>
           </div>

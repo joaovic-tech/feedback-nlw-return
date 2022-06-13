@@ -61,7 +61,7 @@ export function Form() {
       )}
 
       <footer className="text-xs text-neutral-400">
-        Made with ♥ by <a className="underline underline-offset-2 hover:text-brand-500" href="https://www.instagram.com/joaovic.tech/">@joaovic.tech</a>
+        Made with ♥ by <a className="underline underline-offset-2 hover:text-brand-500" href="https://www.instagram.com/joaovic.tech/" target="blank">@joaovic.tech</a>
       </footer>
     </div>
   )

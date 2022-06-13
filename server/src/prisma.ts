@@ -1,4 +1,5 @@
 import { PrismaClient } from '@prisma/client';
+import { resolve } from 'path';
 import { routes } from './routes';
 
 export const prisma = new PrismaClient({
@@ -8,12 +9,11 @@ export const prisma = new PrismaClient({
 });
 
 async function main() {
-  const result = await prisma.feedback.findMany()
-  routes.get('/table', (req, res) => {
-    res.send(result);
+  const allFeedbacks = await prisma.feedback.findMany()
+  routes.get('/feedbacks', (req, res) => {
+    res.send(allFeedbacks);
   });
 }
-
 main()
   .catch((e) => {
     throw e
