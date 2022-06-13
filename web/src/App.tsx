@@ -1,5 +1,5 @@
 import { Menu } from "./components/Menu";
-import { Message } from "./components/Message";
+import { About } from "./components/About";
 import { Table } from "./components/Table";
 import { Widget } from "./components/Widget";
 
@@ -7,7 +7,7 @@ export function App() {
   return (
     <>
       <Menu />
-      <Message />
+      <About />
       <Table />
       <Widget />
     </>

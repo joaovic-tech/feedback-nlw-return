@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply bg-zinc-400 text-zinc-100 scrollbar-thumb-zinc-700 scrollbar-track-transparent scrollbar-thin h-screen
+  @apply bg-zinc-900 text-zinc-100 scrollbar-thumb-zinc-700 scrollbar-track-transparent scrollbar-thin h-screen
 }
 
 .inputFeedback:invalid {
@@ -62,11 +62,40 @@ body {
   @apply border-blue-400 hover:shadow-blue-400 focus:shadow-blue-400 active:shadow-blue-400
 }
 
-table .screenshotZoom {
+.screenshotZoom {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 50%;
   height: 50%;
+}
+
+/* About */
+.text-about {
+  position: relative;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+.text-about::after {
+  @apply bg-gradient-to-tl from-blue-400 to-purple-600;
+  position: absolute;
+  content: '';
+  height: .3rem;
+  left: 0;
+  top: 3rem;
+  transition: width 0.2s;
+  animation: line_effect 2s forwards linear;
+}
+
+@keyframes line_effect{
+  from{
+    width: 0%;
+  }
+  to{
+    width: 100%;
+  }
 }
