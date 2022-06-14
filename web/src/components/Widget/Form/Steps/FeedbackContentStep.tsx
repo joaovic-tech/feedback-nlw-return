@@ -28,7 +28,7 @@ export function FeedbackContentStep({
     event.preventDefault();
     setIsSendingFeedback(true);
 
-    await Api.post('/feedbacks', {
+    const sendFeedback = await Api.post('/feedbacks', {
       type: feedbackType,
       comment,
       date,
@@ -39,7 +39,6 @@ export function FeedbackContentStep({
     setIsSendingFeedback(false);
     onFeedbackSent();
   }
-
   return (
     <>
       <header>
@@ -93,4 +92,8 @@ export function FeedbackContentStep({
       </form>
     </>
   )
+}
+
+function useFeedbacks(): { feedbacks: any; getAll: any; } {
+  throw new Error("Function not implemented.");
 }

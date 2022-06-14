@@ -1,7 +1,7 @@
 import { ArrowClockwise, List } from "phosphor-react";
 import { showAbout } from "./About";
 
-function refresh() {
+export function refresh() {
   const spin = document.getElementById('spin')!;
   spin.classList.add('animate-spin');
   location.reload();
@@ -14,7 +14,7 @@ export function Menu() {
         <div className="flex items-center gap-4">
           <h1 className="self-center text-xl 2xl:text-6xl font-semibold whitespace-nowrap dark:text-white">Feedback Table</h1>
         </div>
-        <a href="#about" onClick={() => showAbout(true, 'about')} className="text-xl 2xl:text-6xl text-gray-500 hover:text-brand-500 focus:text-brand-500">About</a>
+        <button type="button" onClick={() => showAbout(true, 'about')} className="text-xl 2xl:text-6xl text-gray-500 hover:text-brand-500 focus:text-brand-500">About</button>
         <div className="flex justify-center items-center gap-2">
           <button
             className="p-1 2xl:p-3 overflow-hidden text-sm 2xl:text-6xl font-semibold text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:shadow-md hover:shadow-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800"

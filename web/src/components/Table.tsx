@@ -2,6 +2,7 @@ import { SmileyXEyes, Trash } from "phosphor-react";
 import { useEffect } from "react";
 import { useFeedbacks } from "../hooks";
 import { Api } from "../providers";
+import { refresh } from "./Menu";
 
 export function Table() {
   const { feedbacks, getAll } = useFeedbacks();
@@ -13,12 +14,11 @@ export function Table() {
   async function deleteFeedback(idDelete: any, name: any) {
     const confirmDelete = confirm(`Do you really want to delete this feedback from ${name}?`);
     if (confirmDelete) {
-      document.getElementById(idDelete)!.style.display = 'none';
-      alert('Feedback deleted!');
       await Api.post('/delete', {
         id: idDelete
       });
     }
+    await refresh();
   }
 
   function screenshotZoom(value: any) {
@@ -26,7 +26,7 @@ export function Table() {
   }
 
   return (
-    <section className="w-11/12 h-3/4 overflow-x-auto overflow-visible text-center m-auto rounded-3xl bg-gradient-to-tl from-zinc-900 to-color-100 shadow-lg shadow-color-400 my-8">
+    <section className="w-11/12 h-3/4 overflow-x-auto overflow-visible text-center m-auto rounded-3xl bg-gradient-to-tl from-zinc-900 to-color-100 shadow-lg shadow-color-400 my-8">      
       <table className="">
         <thead className="border-b-2 border-solid border-zinc-800 w-full">
           <tr>
