@@ -1,5 +1,5 @@
 import { ArrowLeft } from "phosphor-react";
-import { FormEvent, useState } from "react";
+import { FormEvent, useCallback, useEffect, useState } from "react";
 import { FeedbackType, feedbackTypes } from "..";
 import { CloseButton } from "../../CloseButton";
 import { date } from "../../FormattingDate";
@@ -24,11 +24,12 @@ export function FeedbackContentStep({
   const [isSendingFeedback, setIsSendingFeedback] = useState(false);
   const feedbackTypeInfo = feedbackTypes[feedbackType];
 
+
   async function handleSubmitFeedback(event: FormEvent) {
     event.preventDefault();
     setIsSendingFeedback(true);
 
-    const sendFeedback = await Api.post('/feedbacks', {
+    await Api.post('/feedbacks', {
       type: feedbackType,
       comment,
       date,
@@ -39,6 +40,7 @@ export function FeedbackContentStep({
     setIsSendingFeedback(false);
     onFeedbackSent();
   }
+
   return (
     <>
       <header>
@@ -92,8 +94,4 @@ export function FeedbackContentStep({
       </form>
     </>
   )
-}
-
-function useFeedbacks(): { feedbacks: any; getAll: any; } {
-  throw new Error("Function not implemented.");
 }
