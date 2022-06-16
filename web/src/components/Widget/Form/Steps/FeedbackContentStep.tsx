@@ -6,6 +6,7 @@ import { date } from "../../FormattingDate";
 import { Loading } from "../../../Loading";
 import { ScreenshotButton } from "../ScreenshotButton";
 import { Api } from "../../../../providers";
+import { useFeedbacks } from "../../../../hooks";
 
 interface FeedbackContentStepProps {
   feedbackType: FeedbackType;
@@ -22,20 +23,23 @@ export function FeedbackContentStep({
   const [comment, setComment] = useState('');
   const [name, setName] = useState('');
   const [isSendingFeedback, setIsSendingFeedback] = useState(false);
+  const [createdFeedback, setCreatedFeedback] = useState(false);
   const feedbackTypeInfo = feedbackTypes[feedbackType];
 
 
-  async function handleSubmitFeedback(event: FormEvent) {
-    event.preventDefault();
+  const handleSubmitFeedback = async (event: FormEvent) => { 
+    event.preventDefault();   
     setIsSendingFeedback(true);
 
-    await Api.post('/feedbacks', {
+    const createFeedback = await Api.post('/feedbacks', {
       type: feedbackType,
       comment,
       date,
       screenshot,
       name,
     });
+
+    createFeedback ? setCreatedFeedback(true) : setCreatedFeedback(false);
 
     setIsSendingFeedback(false);
     onFeedbackSent();

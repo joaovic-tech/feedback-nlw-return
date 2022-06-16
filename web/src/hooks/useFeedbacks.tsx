@@ -8,13 +8,13 @@ export const useFeedbacks = () => {
   const getAll = useCallback(async () => {
     const { status, data } = await FeedbacksService.getAll();
 
-    if(status !== 200) throw new Error();
+    if (status !== 200) throw new Error();
 
     setFeedbacks(data);
   }, []);
 
   return {
     feedbacks,
-    getAll
+    getAll,
   }
 }

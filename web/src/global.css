@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply bg-gradient-to-tl from-zinc-900 to-color-100 text-zinc-100 scrollbar-thumb-zinc-700 scrollbar-track-transparent scrollbar-thin h-screen
+  @apply bg-zinc-900 text-zinc-200 h-screen
 }
 
 .inputFeedback:invalid {

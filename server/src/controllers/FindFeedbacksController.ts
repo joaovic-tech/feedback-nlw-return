@@ -5,11 +5,7 @@ export class FindFeedbacksController {
   async handle(request: Request, response: Response) {
     const { id } = request.params;
 
-    const feedback = await prisma.feedback.findMany({
-      orderBy: {
-        date: 'desc',
-      }
-    }); 
+    const feedback = await prisma.feedback.findMany({ orderBy: { date: 'desc' } }); 
     
     return response.json(feedback);
   }

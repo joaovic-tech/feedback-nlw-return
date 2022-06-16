@@ -1,13 +1,13 @@
-import { Menu } from "./components/Menu";
-import { Table } from "./components/Table";
-import { Widget } from "./components/Widget";
+import { About, Background, Menu, Table, Widget } from "./components";
 
 export function App() {
   return (
     <>
+      <About />
       <Menu />
       <Table />
       <Widget />
+      <Background />
     </>
   )
 }

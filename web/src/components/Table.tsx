@@ -1,8 +1,7 @@
-import { SmileyXEyes, Trash, WarningOctagon } from "phosphor-react";
-import { useEffect, useState } from "react";
+import { SmileyXEyes, Trash } from "phosphor-react";
+import { useEffect } from "react";
 import { useFeedbacks } from "../hooks";
 import { Api } from "../providers";
-import { Loading } from "./Loading";
 
 
 export function Table() {
@@ -24,8 +23,8 @@ export function Table() {
   }
 
   return (
-    <section className="w-11/12 h-3/4 overflow-x-auto overflow-visible text-center m-auto rounded-3xl bg-color-300/40 shadow-lg shadow-color-200 my-8">
-      <table className="">
+    <section className="relative z-10 w-11/12 h-3/4 overflow-x-auto overflow-visible text-center m-auto rounded-3xl backdrop-blur-md bg-color-200/30 shadow-lg shadow-color-200 my-8">
+      <table>
         <thead className="border-b-2 border-solid border-zinc-800 w-full">
           <tr>
             <th scope="col" className="text-2xl font-medium text-zinc-300 w-[320px] h-20 p-2 2xl:text-6xl 2xl:w-96 2xl:h-40 2xl:p-4">
